@@ -1,0 +1,18 @@
+NAME "Automatic Smelting"
+
+-- Label Furnaces as "furnaces" and Blast Furnaces as "blastfurnaces".
+-- Label Input Chest for Ore and Fuels as "inputchest" and Output Chest for your Cooked Items as "outputchest".
+
+EVERY 90 SECONDS DO
+
+INPUT FROM inputchest
+
+OUTPUT 8 EXCEPT modern_industrialization:lignite_coal, minecraft:coal TO EACH furnaces, blastfurnaces TOP SIDE
+OUTPUT RETAIN 4 modern_industrialization:lignite_coal, minecraft:coal TO EACH furnaces, blastfurnaces NORTH SIDE
+
+FORGET
+
+INPUT FROM furnaces, blastfurnaces BOTTOM SIDE
+OUTPUT TO outputchest
+
+END
